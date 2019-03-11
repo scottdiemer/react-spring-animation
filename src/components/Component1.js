@@ -1,9 +1,12 @@
 import React from "react";
-import { Spring } from "react-spring";
+import { Spring } from "react-spring/renderprops";
 
 function Component1() {
   return (
-    <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
+    <Spring
+      from={{ opacity: 0, marginTop: -500 }}
+      to={{ opacity: 1, marginTop: 0 }}
+    >
       {props => (
         <div style={props}>
           <div style={c1Style}>
@@ -15,12 +18,31 @@ function Component1() {
               dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
               sanctus est Lorem ipsum dolor sit amet.
             </p>
+            <Spring
+              from={{ number: 0 }}
+              to={{ number: 10 }}
+              config={{ duration: 10000 }}
+            >
+              {props => (
+                <div style={props}>
+                  <h1 style={counter}>{props.number.toFixed()}</h1>
+                </div>
+              )}
+            </Spring>
           </div>
         </div>
       )}
     </Spring>
   );
 }
+
+const counter = {
+  background: "#333",
+  textAlign: "center",
+  width: "100px",
+  borderRadius: "50%",
+  margin: "1rem auto"
+};
 
 const c1Style = {
   background: "steelblue",
