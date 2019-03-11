@@ -1,5 +1,5 @@
 import React from "react";
-import { useSpring as Spring } from "react-spring";
+import { Spring } from "react-spring";
 
 function Component1() {
   return (
